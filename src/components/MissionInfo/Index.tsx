@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const MissionContainer = () =>{
+const MissionInfoContainer = () =>{
     return(
         <div>
             
@@ -9,4 +9,4 @@ const MissionContainer = () =>{
     )
 }
 
-export default MissionContainer;
+export default MissionInfoContainer;

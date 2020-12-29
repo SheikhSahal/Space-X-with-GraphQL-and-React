@@ -1,11 +1,17 @@
 import React from 'react';
+import { useMissionsInfoQuery } from './../../generated/graphql'
+import MissionList from './MissionList'
 
+const MissionContainer = () => {
+    const {data, error, loading} = useMissionsInfoQuery();
+    if(loading)
+        return <h2>Loading...</h2>
+    if(error || !data)    
+        return <h2>Error</h2>;
 
-const MissionContainer = () =>{
-    return(
-        <div>
-            
-        </div>
+    console.log(data);
+    return (
+        <MissionList data={data} />
     )
 }
 
