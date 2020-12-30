@@ -1,26 +1,20 @@
 import React from 'react';
 import { MissionsInfoQuery } from './../../generated/graphql'
 
-interface Props {
+export interface OwnProps {
+    handleIdChange: (newId: number) => void;
+}
+
+interface Props extends OwnProps {
     data: MissionsInfoQuery
 }
 
-const MissionList: React.FC<Props> = ({ data }) => {
+const MissionList: React.FC<Props> = ({ data,handleIdChange }) => {
     return (
         <div>
-
-            <div className="col-md-4">
-
-                <div className="card">
-                    <img className="card-img-top" src="..." alt="Card image cap" />
-                    <div className="card-body">
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </div>
             {/* <ul>
                 {data.launches?.map((launchobj, ind) => {
-                    return (<li key={ind}>
+                    return (<li key={ind} onClick={() => handleIdChange(launchobj?.mission_id)}>
                         {launchobj?.mission_name}
                     </li>)
                 })}

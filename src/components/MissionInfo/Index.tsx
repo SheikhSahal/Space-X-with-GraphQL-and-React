@@ -2,12 +2,15 @@ import React from 'react';
 import { useLaunchMissionInfoQuery } from './../../generated/graphql'
 import MissionInfo from './MissionInfo'
 
+interface OwnPorps{
+    id:number;
+}
 
-const MissionInfoContainer = () => {
+const MissionInfoContainer = ({id}: OwnPorps) => {
 
     const { data, loading, error } = useLaunchMissionInfoQuery({
         variables: {
-            id: '25'
+            id: String(id)
         },
     });
 
@@ -21,6 +24,7 @@ const MissionInfoContainer = () => {
 
     return (
         <div>
+            <h4>Mission Details</h4>
             <MissionInfo data={data} /> 
         </div>
     )
